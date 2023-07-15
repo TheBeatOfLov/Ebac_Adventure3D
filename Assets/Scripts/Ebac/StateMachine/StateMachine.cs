@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class StateMachine<T> where T : System.Enum
 {
     public Dictionary<T, StateBase> dictionaryState;
@@ -15,7 +16,7 @@ public class StateMachine<T> where T : System.Enum
 
     public float timeToStartGame = 1f;
 
-   
+
 
     public void Init()
     {
@@ -37,5 +38,6 @@ public class StateMachine<T> where T : System.Enum
     {
         if (_currentState != null) _currentState.OnStateStay();
     }
-
 }
+    
+
