@@ -16,8 +16,6 @@ public class StateMachine<T> where T : System.Enum
 
     public float timeToStartGame = 1f;
 
-
-
     public void Init()
     {
         dictionaryState = new Dictionary<T, StateBase>();
