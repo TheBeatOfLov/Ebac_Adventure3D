@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
 
 public class Player : MonoBehaviour
 {
@@ -64,7 +65,9 @@ public class Player : MonoBehaviour
         characterController.Move(speedVectorVert * Time.deltaTime);
         characterController.Move(speedVectorHor * Time.deltaTime);
 
-        /*O prof fez assim (por rotação), mas parece um carrinho entao não curti:
+      
+
+        /*O prof fez assim (por rotação), mas parece um carrinho entao não curti
         transform.Rotate(0, inputAxisHor * turnSpeed * Time.deltaTime, 0);*/
 
         //jump
