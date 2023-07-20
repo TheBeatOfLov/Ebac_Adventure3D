@@ -37,5 +37,6 @@ public class GunBase : MonoBehaviour
     {
         var projectile = Instantiate(prefabProjectile);
         projectile.transform.position = positionToShoot.position;
+        projectile.transform.rotation = positionToShoot.rotation;
     }
 }

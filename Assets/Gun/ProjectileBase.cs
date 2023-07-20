@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class ProjectileBase : MonoBehaviour
 {
-
     public float timeToDestroy = 2f;
     public int damageAmount = 1;
     public float speed = 50f;

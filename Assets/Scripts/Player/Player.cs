@@ -7,6 +7,7 @@ public class Player : MonoBehaviour
 {
     [Header("Animation")]
     public Animator animator;
+    public Transform renderTransform;
 
     [Header("Movement")]
     public CharacterController characterController;
@@ -65,7 +66,12 @@ public class Player : MonoBehaviour
         characterController.Move(speedVectorVert * Time.deltaTime);
         characterController.Move(speedVectorHor * Time.deltaTime);
 
-      
+      if(speedVectorHor.magnitude > 0 || speedVectorVert.magnitude > 0)
+        {
+            speedVectorHor.y = 0;
+            speedVectorVert.y = 0;
+            renderTransform.LookAt(renderTransform.position + speedVectorHor + speedVectorVert);
+        }
 
         /*O prof fez assim (por rotação), mas parece um carrinho entao não curti
         transform.Rotate(0, inputAxisHor * turnSpeed * Time.deltaTime, 0);*/
