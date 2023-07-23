@@ -143,3 +143,4 @@ MonoBehaviour:
   keyshoot: 122
   positionToShoot: {fileID: 6524381421749497493}
   timeBetweenShots: 0.5
+  speed: 50
