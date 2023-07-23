@@ -4,15 +4,19 @@ using UnityEngine;
 
 public class PlayerAbilityBase : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    protected Player player;
+
+    private void OnValidate()
     {
-        
+        if (player != null) GetComponent<Player>();
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Start()
     {
-        
+        OnValidate();
     }
+
+    protected virtual void Init() { }
+    protected virtual void RegisterListeners() { }
+    protected virtual void RemoveListeners() { }
 }
