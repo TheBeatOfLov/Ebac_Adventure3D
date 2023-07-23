@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerAbilityBase : MonoBehaviour
 {
     protected Player player;
+    protected Inputs inputs;
 
     private void OnValidate()
     {
@@ -13,7 +14,23 @@ public class PlayerAbilityBase : MonoBehaviour
 
     private void Start()
     {
+        inputs = new Inputs();
+        inputs.Enable();
+        
+        Init();
         OnValidate();
+        RegisterListeners();
+    }
+
+    private void OnEnable()
+    {
+        if (inputs != null)
+            inputs.Enable();
+    }
+
+    private void OnDestroy()
+    {
+        RemoveListeners();
     }
 
     protected virtual void Init() { }
