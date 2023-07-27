@@ -24,7 +24,7 @@ public class GunShotLimit : GunBase
         if (_recharging) yield break;
         while (true)
         {
-            if(_currentShot < maxShots)
+            if (_currentShot < maxShots)
             {
                 Shoot();
                 _currentShot++;
@@ -32,6 +32,8 @@ public class GunShotLimit : GunBase
                 UpdateUI();
                 yield return new WaitForSeconds(timeBetweenShots);
             }
+
+            else yield break;
 
         }
     }

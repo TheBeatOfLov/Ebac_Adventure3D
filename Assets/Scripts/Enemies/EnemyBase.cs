@@ -3,16 +3,29 @@ using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
 
-public class EnemyBase : MonoBehaviour
+public class EnemyBase : MonoBehaviour, IDamageable
 {
-    public float startLife = 10f;
-    private float _currentLife;
+    [SerializeField] private float _currentLife;
+     public float startLife = 10f;
 
     [Header("Start Animation")]
     public float startAnimationDuration = .1f;
     public Ease startAnimationEase = Ease.OutBack;
     public bool startWithBornAnimation = true;
 
+    [Header("Animation")]
+    [SerializeField] private AnimationBase _animationBase;
+
+    [Header("Death Animation")]
+    public float timeToDestroy = 3f;
+
+    public Collider colliderDamage;
+    public FlashColor flashColor;
+
+    [Header("Death Particles")]
+    public ParticleSystem particleSystemGoo;
+    public int numberOfParticlesDeath = 10;
+    public int numberOfParticlesHit = 5;
     private void Awake()
     {
         Init();
@@ -34,11 +47,16 @@ public class EnemyBase : MonoBehaviour
     }
     protected virtual void OnKill()
     {
-        Destroy(gameObject);
+        if (colliderDamage != null) colliderDamage.enabled = false;
+        if (particleSystemGoo != null) particleSystemGoo.Emit(numberOfParticlesDeath);
+        Destroy(gameObject, timeToDestroy);
+        PlayAnimationByTrigger(AnimationType.DEATH);
     }
 
     public void OnDamage(float damage)
     {
+        if (flashColor != null) flashColor.Flash();
+        if (particleSystemGoo != null) particleSystemGoo.Emit(numberOfParticlesHit);
         _currentLife -= damage;
 
         if(_currentLife <= 0)
@@ -52,6 +70,19 @@ public class EnemyBase : MonoBehaviour
     {
         transform.DOScale(0, startAnimationDuration).SetEase(startAnimationEase).From();
     }
-    #endregion
 
+    public void PlayAnimationByTrigger(AnimationType animationType)
+    {
+        _animationBase.PlayAnimationByTrigger(animationType);
+    }
+    #endregion
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.L)) OnDamage(10f);
+    }
+
+    public void Damage(float damage)
+    {
+        OnDamage(damage);
+    }
 }
