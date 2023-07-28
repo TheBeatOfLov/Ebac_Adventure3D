@@ -9,13 +9,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4405707674170843110}
-  - component: {fileID: 4405707674170843105}
   - component: {fileID: 4405707674170843111}
   - component: {fileID: 4405707674170843108}
   - component: {fileID: 2923432551632363913}
   m_Layer: 0
   m_Name: Enemy_Green
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -36,31 +35,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &4405707674170843105
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4405707674170843104}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b16905bcdafaeef47b2c3cf1f947e076, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _currentLife: 0
-  startLife: 10
-  startAnimationDuration: 1
-  startAnimationEase: 27
-  startWithBornAnimation: 1
-  _animationBase: {fileID: 4405707674170843111}
-  timeToDestroy: 1.5
-  colliderDamage: {fileID: 4405707674170843108}
-  flashColor: {fileID: 8728675784087046049}
-  particleSystemGoo: {fileID: 4405707674626353200}
-  numberOfParticlesDeath: 10
-  numberOfParticlesHit: 5
-  damageOnTouch: 1
 --- !u!114 &4405707674170843111
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5006,7 +4980,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4405707676185537595}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_Children:
@@ -5081,14 +5055,3 @@ Animator:
   m_CorrespondingSourceObject: {fileID: 7443898874300591051, guid: 86dc2d7519f0fa047a4a9adbc81a8da7, type: 3}
   m_PrefabInstance: {fileID: 8868082084567120146}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &8728675784087046049 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 158679090250972851, guid: 86dc2d7519f0fa047a4a9adbc81a8da7, type: 3}
-  m_PrefabInstance: {fileID: 8868082084567120146}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3ad6bd60495e6ad418999cf660ac3aaf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 

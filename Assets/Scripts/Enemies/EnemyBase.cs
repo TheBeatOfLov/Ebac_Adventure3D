@@ -30,6 +30,14 @@ public class EnemyBase : MonoBehaviour, IDamageable
     [Header("Damage settings")]
     public float damageOnTouch = 1;
 
+    public bool lookAtPlayer = false;
+    private Player _player;
+
+    private void Start()
+    {
+        _player = GameObject.FindObjectOfType<Player>();
+    }
+
     private void Awake()
     {
         Init();
@@ -80,11 +88,6 @@ public class EnemyBase : MonoBehaviour, IDamageable
         _animationBase.PlayAnimationByTrigger(animationType);
     }
     #endregion
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.L)) OnDamage(10f);
-    }
-
     public void Damage(float damage)
     {
         OnDamage(damage);
@@ -102,6 +105,14 @@ public class EnemyBase : MonoBehaviour, IDamageable
         if(p != null)
         {
             p.Damage(damageOnTouch);
+        }
+    }
+
+    public virtual void Update()
+    {
+        if (lookAtPlayer)
+        {
+            transform.LookAt(_player.transform.position);
         }
     }
 }

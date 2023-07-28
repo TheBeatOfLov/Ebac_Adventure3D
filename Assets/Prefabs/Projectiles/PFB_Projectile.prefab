@@ -143,6 +143,8 @@ MonoBehaviour:
   timeToDestroy: 2
   damageAmount: 1
   speed: 50
+  tagsToHit:
+  - Enemy
 --- !u!54 &545418629186078696
 Rigidbody:
   m_ObjectHideFlags: 0

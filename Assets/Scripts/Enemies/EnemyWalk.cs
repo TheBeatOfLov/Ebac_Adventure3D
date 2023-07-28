@@ -11,8 +11,9 @@ public class EnemyWalk : EnemyBase
 
     private int _index = 0;
 
-    private void Update()
+     public override void Update()
     {
+        base.Update();
         Walk();
     }
 

@@ -4917,8 +4917,8 @@ GameObject:
   - component: {fileID: 6933775505408085628}
   m_Layer: 0
   m_Name: Enemy_Orange
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_TagString: Enemy
+  m_Icon: {fileID: 3936346786652291628, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -4967,7 +4967,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   minDistance: 1
-  speed: 1
+  speed: 10
 --- !u!114 &6751811987871413080
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5053,6 +5053,10 @@ PrefabInstance:
     - target: {fileID: 2870097374169772152, guid: 18b86b2702dd1f346a6839add43ebe78, type: 3}
       propertyPath: m_LocalRotation.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2870097374169772152, guid: 18b86b2702dd1f346a6839add43ebe78, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 180
       objectReference: {fileID: 0}
     - target: {fileID: 3215415061474175682, guid: 18b86b2702dd1f346a6839add43ebe78, type: 3}
       propertyPath: m_Name
