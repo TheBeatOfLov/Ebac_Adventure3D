@@ -26,6 +26,10 @@ public class EnemyBase : MonoBehaviour, IDamageable
     public ParticleSystem particleSystemGoo;
     public int numberOfParticlesDeath = 10;
     public int numberOfParticlesHit = 5;
+
+    [Header("Damage settings")]
+    public float damageOnTouch = 1;
+
     private void Awake()
     {
         Init();
@@ -84,5 +88,20 @@ public class EnemyBase : MonoBehaviour, IDamageable
     public void Damage(float damage)
     {
         OnDamage(damage);
+    }
+    public void Damage(float damage, Vector3 dir)
+    {
+        OnDamage(damage);
+        transform.DOMove(transform.position - dir, .1f);
+    }
+
+    //Se houver colisão com o player -> dano
+    private void OnCollisionEnter(Collision collision)
+    {
+        Player p = collision.transform.GetComponent<Player>();
+        if(p != null)
+        {
+            p.Damage(damageOnTouch);
+        }
     }
 }

@@ -21,7 +21,15 @@ public class ProjectileBase : MonoBehaviour
     private void OnCollisionEnter(Collision collision)
     {
         var damageable = collision.transform.GetComponent<IDamageable>();
-        if (damageable != null) damageable.Damage(damageAmount); ;
+        if (damageable != null)
+        {
+            //pegando direção para o alvo do tiro ir quando tomar o tiro
+            Vector3 dir = collision.transform.position - transform.position;
+            dir = -dir.normalized;
+            dir.y = 0;
+
+            damageable.Damage(damageAmount, dir);
+        }
         Destroy(gameObject);
     }
 

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
 
-public class Player : MonoBehaviour
+public class Player : MonoBehaviour, IDamageable
 {
     [Header("Animation")]
     public Animator animator;
@@ -22,11 +22,13 @@ public class Player : MonoBehaviour
 
     private float _vSpeed = 0f;
 
+    [Header("Flash")]
+    public List<FlashColor> flashColors;
     private void Update()
     {
         Movement();
     }
-
+    #region MOVEMENT
     private void Movement()
     {
         //Implementando movimento Pra frente e pros lados
@@ -87,4 +89,18 @@ public class Player : MonoBehaviour
         }
 
     }
+    #endregion
+
+    #region LIFE
+    public void Damage(float damage)
+    {
+        flashColors.ForEach(i => i.Flash());
+    }
+
+    public void Damage(float damage, Vector3 dir)
+    {
+        flashColors.ForEach(i => i.Flash());
+    }
+
+    #endregion
 }
