@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class HealthBase : MonoBehaviour
+public class HealthBase : MonoBehaviour, IDamageable
 {
     [SerializeField] private float _currentLife;
     public float startLife = 10f;
@@ -14,6 +14,8 @@ public class HealthBase : MonoBehaviour
 
     public Action<HealthBase> OnDamage;
     public Action<HealthBase> OnKill;
+
+    public UIFillUpdater uIFillUpdater;
 
     private void Awake()
     {
@@ -53,6 +55,20 @@ public class HealthBase : MonoBehaviour
         {
             Kill();
         }
+        UpdateUI();
         OnDamage?.Invoke(this);
+    }
+
+    public void Damage(float damage, Vector3 dir)
+    {
+        Damage(damage);
+    }
+
+    private void UpdateUI()
+    {
+        if(uIFillUpdater != null)
+        {
+            uIFillUpdater.UpdateValue((float)_currentLife / startLife); 
+        }
     }
 }

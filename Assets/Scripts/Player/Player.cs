@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
 
-public class Player : MonoBehaviour, IDamageable
+public class Player : MonoBehaviour//, IDamageable
 {
     [Header("Animation")]
     public Animator animator;
@@ -24,6 +24,28 @@ public class Player : MonoBehaviour, IDamageable
 
     [Header("Flash")]
     public List<FlashColor> flashColors;
+
+    public List<Collider> colliders;
+
+    public HealthBase healthBase;
+
+    private bool _alive = true;
+
+
+    private void OnValidate()
+    {
+        if (healthBase == null) healthBase = GetComponent<HealthBase>();
+    }
+
+    private void Awake()
+    {
+        OnValidate();
+
+        //register damage
+        healthBase.OnDamage += Damage;
+        healthBase.OnKill += Death;
+    }
+
     private void Update()
     {
         Movement();
@@ -92,7 +114,7 @@ public class Player : MonoBehaviour, IDamageable
     #endregion
 
     #region LIFE
-    public void Damage(float damage)
+    public void Damage(HealthBase h)
     {
         flashColors.ForEach(i => i.Flash());
     }
@@ -100,6 +122,17 @@ public class Player : MonoBehaviour, IDamageable
     public void Damage(float damage, Vector3 dir)
     {
         flashColors.ForEach(i => i.Flash());
+    }
+
+    private void Death(HealthBase h)
+    {
+        if(_alive)
+        {
+            _alive = false;
+            animator.SetTrigger("Death");
+            colliders.ForEach(i => i.enabled = false);
+        }
+        
     }
 
     #endregion

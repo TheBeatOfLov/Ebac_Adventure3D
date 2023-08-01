@@ -104,7 +104,7 @@ public class EnemyBase : MonoBehaviour, IDamageable
         Player p = collision.transform.GetComponent<Player>();
         if(p != null)
         {
-            p.Damage(damageOnTouch);
+            p.healthBase.Damage(damageOnTouch);
         }
     }
 

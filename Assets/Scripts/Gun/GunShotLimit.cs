@@ -12,7 +12,7 @@ public class GunShotLimit : GunBase
     private bool _recharging = false;
 
     //UI
-    public List<UIGunUpdater> uIGunUpdaters;
+    public List<UIFillUpdater> uIGunUpdaters;
 
     protected override IEnumerator ShootCoroutine()
     {
@@ -78,6 +78,6 @@ public class GunShotLimit : GunBase
 
     private void GetAllUIs()
     {
-        uIGunUpdaters = GameObject.FindObjectsOfType<UIGunUpdater>().ToList();
+        uIGunUpdaters = GameObject.FindObjectsOfType<UIFillUpdater>().ToList();
     }
 }
