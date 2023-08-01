@@ -139,6 +139,14 @@ public class Player : MonoBehaviour//, IDamageable
 
     #endregion
 
+    public void Revive()
+    {
+        _alive = true;
+        healthBase.ResetLife();
+        Respawn();
+        Invoke(nameof(TurnOnColliders), .1f);
+        animator.SetTrigger("Revive");
+    }
 
     [NaughtyAttributes.Button]
     public void Respawn()
@@ -149,14 +157,6 @@ public class Player : MonoBehaviour//, IDamageable
         }
     }
 
-    public void Revive()
-    {
-        _alive = true;
-        healthBase.ResetLife();
-        Respawn();
-        Invoke(nameof(TurnOnColliders), .1f);
-        animator.SetTrigger("Revive");
-    }
 
     private void TurnOnColliders()
     {
