@@ -110,7 +110,7 @@ public class EnemyBase : MonoBehaviour, IDamageable
 
     public virtual void Update()
     {
-        if (lookAtPlayer)
+        if (lookAtPlayer && _player != null)
         {
             transform.LookAt(_player.transform.position);
         }

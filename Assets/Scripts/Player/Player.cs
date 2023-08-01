@@ -124,6 +124,7 @@ public class Player : MonoBehaviour//, IDamageable
         flashColors.ForEach(i => i.Flash());
     }
 
+    // Death = OnKill (nome da do professor)
     private void Death(HealthBase h)
     {
         if(_alive)
@@ -131,6 +132,7 @@ public class Player : MonoBehaviour//, IDamageable
             _alive = false;
             animator.SetTrigger("Death");
             colliders.ForEach(i => i.enabled = false);
+            Invoke(nameof(Revive), 3f);
         }
         
     }
@@ -145,5 +147,19 @@ public class Player : MonoBehaviour//, IDamageable
         {
             transform.position = CheckpointManager.Instance.GetLastCheckpointPosition();
         }
+    }
+
+    public void Revive()
+    {
+        _alive = true;
+        healthBase.ResetLife();
+        Respawn();
+        Invoke(nameof(TurnOnColliders), .1f);
+        animator.SetTrigger("Revive");
+    }
+
+    private void TurnOnColliders()
+    {
+        colliders.ForEach(i => i.enabled = true);
     }
 }

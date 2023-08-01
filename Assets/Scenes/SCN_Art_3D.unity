@@ -1572,9 +1572,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _currentLife: 0
-  startLife: 50
+  startLife: 10
   destroyOnKill: 0
-  timeToDestroy: 3
+  timeToDestroy: 1
   uIFillUpdater: {fileID: 175170691}
 --- !u!1001 &226622307
 PrefabInstance:
