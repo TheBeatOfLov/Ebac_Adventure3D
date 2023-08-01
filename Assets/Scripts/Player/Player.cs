@@ -136,4 +136,14 @@ public class Player : MonoBehaviour//, IDamageable
     }
 
     #endregion
+
+
+    [NaughtyAttributes.Button]
+    public void Respawn()
+    {
+        if (CheckpointManager.Instance.HasCheckpoint())
+        {
+            transform.position = CheckpointManager.Instance.GetLastCheckpointPosition();
+        }
+    }
 }

@@ -5,9 +5,15 @@ using UnityEngine;
 public class CheckpointBase : MonoBehaviour
 {
     public MeshRenderer meshRenderer;
+
+    public int key = 1;
+    //private string _checkpointKey = "Checkpoint Key";
+
+    private bool _checkpointActive = false;
+
     private void OnTriggerEnter(Collider other)
     {
-        if(other.transform.tag == "Player")
+        if(!_checkpointActive && other.transform.tag == "Player")
         {
             CheckCheckpoint();
         }
@@ -15,6 +21,7 @@ public class CheckpointBase : MonoBehaviour
 
     private void CheckCheckpoint()
     {
+        SaveCheckpoint();
         TurnCheckpointOn();
     }
 
@@ -28,5 +35,13 @@ public class CheckpointBase : MonoBehaviour
     private void TurnCheckpointOff()
     {
         meshRenderer.material.SetColor("_EmissionColor", Color.gray);
+    }
+
+    private void SaveCheckpoint()
+    {
+        /* if(PlayerPrefs.GetInt(_checkpointKey, 0) > key)
+        PlayerPrefs.SetInt(_checkpointKey, key); */
+
+        CheckpointManager.Instance.SaveCheckPoint(key);
     }
 }
