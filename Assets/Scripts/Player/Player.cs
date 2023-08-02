@@ -117,6 +117,7 @@ public class Player : MonoBehaviour//, IDamageable
     public void Damage(HealthBase h)
     {
         flashColors.ForEach(i => i.Flash());
+        ShakeCamera.Instance.Shake();
     }
 
     public void Damage(float damage, Vector3 dir)
