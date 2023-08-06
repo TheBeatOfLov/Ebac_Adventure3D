@@ -27,6 +27,10 @@ public class ItemManager : Singleton<ItemManager>
         }
     }
 
+    public ItemSetup GetItemByType(ItemType itemType, int amount = 1)
+    {
+        return itemSetups.Find(i => i.itemType == itemType);
+    }
     public void AddByType(ItemType itemType ,int amount = 1)
     {
         if (amount < 0) return;
@@ -36,8 +40,7 @@ public class ItemManager : Singleton<ItemManager>
 
     public void RemoveByType(ItemType itemType, int amount = 1)
     {
-        if (amount < 0) return;
-
+     
         var item = itemSetups.Find(i => i.itemType == itemType);
         item.soInt.value -= amount;
 
