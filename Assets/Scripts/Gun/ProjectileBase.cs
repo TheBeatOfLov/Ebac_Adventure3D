@@ -27,6 +27,7 @@ public class ProjectileBase : MonoBehaviour
             if(collision.transform.tag == t)
             {
                 var damageable = collision.transform.GetComponent<IDamageable>();
+         
                 if (damageable != null)
                 {
                     //pegando direção para o alvo do tiro ir quando tomar o tiro

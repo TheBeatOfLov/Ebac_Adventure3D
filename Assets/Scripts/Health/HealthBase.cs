@@ -17,6 +17,8 @@ public class HealthBase : MonoBehaviour, IDamageable
 
     public UIFillUpdater uIFillUpdater;
 
+    public float damageMultiplier = 1f;
+
     private void Awake()
     {
         Init();
@@ -50,7 +52,7 @@ public class HealthBase : MonoBehaviour, IDamageable
    
     public void Damage(float damage)
     {
-        _currentLife -= damage;
+        _currentLife -= damage * damageMultiplier; //damage multiplier pra mudar quando o personagem for sofrer mais ou menos dano. O default é 1;
 
         if (_currentLife <= 0)
         {
@@ -71,5 +73,17 @@ public class HealthBase : MonoBehaviour, IDamageable
         {
             uIFillUpdater.UpdateValue((float)_currentLife / startLife); 
         }
+    }
+
+    public void ChangeDamageMultiplier(float multiplier, float duration)
+    {
+        StartCoroutine(ChangeDamageMultiplierCoroutine(multiplier, duration));
+    }
+
+    IEnumerator ChangeDamageMultiplierCoroutine(float multiplier, float duration)
+    {
+        damageMultiplier = multiplier;
+        yield return new WaitForSeconds(duration);
+        damageMultiplier = 1;
     }
 }

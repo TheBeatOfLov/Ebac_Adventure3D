@@ -33,6 +33,10 @@ public class Player : Singleton<Player>//, IDamageable
 
     private bool _alive = true;
 
+    [Space]
+
+    [SerializeField] private ClotheChanger _clotheChanger;
+
 
     private void OnValidate()
     {
@@ -116,6 +120,19 @@ public class Player : Singleton<Player>//, IDamageable
         }
 
     }
+
+    public void ChangeSpeed(float speed, float duration)
+    {
+        StartCoroutine(ChangeSpeedCoroutine(speed, duration));
+    }
+
+    IEnumerator ChangeSpeedCoroutine(float localSpeed, float duration)
+    {
+        var defaultSpeed = speed;
+        speed *= localSpeed;
+        yield return new WaitForSeconds(duration);
+        speed = defaultSpeed;
+    }
     #endregion
 
     #region LIFE
@@ -142,6 +159,23 @@ public class Player : Singleton<Player>//, IDamageable
         }
         
     }
+
+    #endregion
+
+    #region CLOTHES
+
+    public void ChangeClothes(ClotheSetup setup, float duration)
+    {
+        StartCoroutine(ChangeClothesCoroutine(setup, duration));
+    }
+
+    IEnumerator ChangeClothesCoroutine(ClotheSetup setup, float duration)
+    {
+        _clotheChanger.ChangeColor(setup);
+        yield return new WaitForSeconds(duration);
+        _clotheChanger.ResetColor();
+    }
+
 
     #endregion
 
