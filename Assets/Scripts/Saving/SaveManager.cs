@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.IO;
 using Ebac.Core.Singleton;
+using System;
 
 public class SaveManager : Singleton<SaveManager>
 {
@@ -10,12 +11,28 @@ public class SaveManager : Singleton<SaveManager>
     private string _path = Application.streamingAssetsPath + "/save.txt";
     public int lastLevel;
 
+    public Action<SaveSetup> FileLoaded;
+
+    public SaveSetup setup
+    {
+        get { return _saveSetup; }
+    }
+
     protected override void Awake()
     {
         base.Awake();
         DontDestroyOnLoad(gameObject);
+    }
+
+    private void Start()
+    {
+        Invoke(nameof(Load), .1f);
+    }
+
+    private void CreateNewSave()
+    {
         _saveSetup = new SaveSetup();
-        _saveSetup.lastLevel = 2;
+        _saveSetup.lastLevel = 0;
         _saveSetup.playerName = "Mateus";
     }
 
@@ -38,6 +55,11 @@ public class SaveManager : Singleton<SaveManager>
         Save();
     }
 
+    public void SaveLastLevelButton()
+    {
+        SaveLastLevel(lastLevel);
+    }
+
     public void SaveLastLevel(int level)
     {
         _saveSetup.lastLevel = level;
@@ -56,10 +78,18 @@ public class SaveManager : Singleton<SaveManager>
     {
         string fileLoaded = "";
 
-        if (File.Exists(_path)) fileLoaded = File.ReadAllText(_path);
-
-        _saveSetup = JsonUtility.FromJson<SaveSetup>(fileLoaded);
-        lastLevel = _saveSetup.lastLevel;
+        if (File.Exists(_path))
+        {
+            fileLoaded = File.ReadAllText(_path);
+            _saveSetup = JsonUtility.FromJson<SaveSetup>(fileLoaded);
+            lastLevel = _saveSetup.lastLevel;
+        }
+        else
+        {
+            CreateNewSave();
+            Save();
+        }
+        FileLoaded.Invoke(_saveSetup);
     }
 }
 

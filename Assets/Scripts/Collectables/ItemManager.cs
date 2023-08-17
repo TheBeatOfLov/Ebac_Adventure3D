@@ -17,6 +17,13 @@ public class ItemManager : Singleton<ItemManager>
     private void Start()
     {
         Reset();
+        LoadItemsFromSave();
+    }
+
+    private void LoadItemsFromSave()
+    {
+        AddByType(ItemType.COIN, (int)SaveManager.Instance.setup.coins);
+        AddByType(ItemType.LIFE_PACK, (int)SaveManager.Instance.setup.lifepacks);
     }
 
     private void Reset()

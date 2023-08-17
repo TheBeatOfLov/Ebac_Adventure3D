@@ -1,1 +1,1 @@
-{"lastLevel":1,"playerName":"Mateus","coins":10,"lifepacks":0}
+{"lastLevel":0,"playerName":"Mateus","coins":0,"lifepacks":0}
