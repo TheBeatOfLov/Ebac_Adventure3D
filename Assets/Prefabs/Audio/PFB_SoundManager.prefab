@@ -47,6 +47,6 @@ MonoBehaviour:
   - musicType: 0
     audioClip: {fileID: 8300000, guid: 5059413ec429c4507bb7bca2286fad19, type: 3}
   sfxSetups:
-  - sfxType: 0
+  - sfxType: 1
     audioClip: {fileID: 8300000, guid: 52320e590bf774734a288886eba557ba, type: 3}
   musicSource: {fileID: 0}

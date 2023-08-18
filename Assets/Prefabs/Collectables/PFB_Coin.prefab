@@ -45,6 +45,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 24bbe5132540f7a40a86aeb173171919, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sfxType: 1
   itemType: 0
   collider: {fileID: 2031526208034670688}
   compareTag: Player
