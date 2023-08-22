@@ -71,6 +71,11 @@ public class SaveManager : Singleton<SaveManager>
     {
         File.WriteAllText(_path, json);
     }
+
+    public void SaveCheckpoint(int key)
+    {
+        _saveSetup.checkpoint = key;
+    }
     #endregion
 
     [NaughtyAttributes.Button]
@@ -99,4 +104,5 @@ public class SaveSetup
     public string playerName;
     public int coins;
     public int lifepacks;
+    public int checkpoint = -1;
 }

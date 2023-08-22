@@ -11057,7 +11057,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1500100153}
-  m_LocalRotation: {x: 0.19634785, y: 0.0047528204, z: -0.00095174374, w: 0.98052233}
+  m_LocalRotation: {x: 0.19634785, y: 0.0047586565, z: -0.00095291244, w: 0.98052233}
   m_LocalPosition: {x: -4.342453, y: 13.031357, z: -82.938705}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -18030,7 +18030,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1987332310}
-  m_LocalRotation: {x: 0.19634785, y: 0.0047528204, z: -0.00095174374, w: 0.98052233}
+  m_LocalRotation: {x: 0.19634785, y: 0.0047586565, z: -0.00095291244, w: 0.98052233}
   m_LocalPosition: {x: -4.342453, y: 13.031357, z: -82.938705}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -19394,34 +19394,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 9046284636599918134, guid: 1e83ed00bd5e46b4bbad8ccfe6ac03a7, type: 3}
-      propertyPath: sfxSetups.Array.size
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 9046284636599918134, guid: 1e83ed00bd5e46b4bbad8ccfe6ac03a7, type: 3}
-      propertyPath: sfxSetups.Array.data[1].sfxType
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 9046284636599918134, guid: 1e83ed00bd5e46b4bbad8ccfe6ac03a7, type: 3}
-      propertyPath: sfxSetups.Array.data[2].sfxType
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 9046284636599918134, guid: 1e83ed00bd5e46b4bbad8ccfe6ac03a7, type: 3}
-      propertyPath: sfxSetups.Array.data[3].sfxType
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 9046284636599918134, guid: 1e83ed00bd5e46b4bbad8ccfe6ac03a7, type: 3}
-      propertyPath: sfxSetups.Array.data[1].audioClip
-      value: 
-      objectReference: {fileID: 8300000, guid: 38a17a92b9d9748c6a1e67972041b833, type: 3}
-    - target: {fileID: 9046284636599918134, guid: 1e83ed00bd5e46b4bbad8ccfe6ac03a7, type: 3}
-      propertyPath: sfxSetups.Array.data[2].audioClip
-      value: 
-      objectReference: {fileID: 8300000, guid: 52320e590bf774734a288886eba557ba, type: 3}
-    - target: {fileID: 9046284636599918134, guid: 1e83ed00bd5e46b4bbad8ccfe6ac03a7, type: 3}
-      propertyPath: sfxSetups.Array.data[3].audioClip
-      value: 
-      objectReference: {fileID: 8300000, guid: 52320e590bf774734a288886eba557ba, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1e83ed00bd5e46b4bbad8ccfe6ac03a7, type: 3}
 --- !u!1001 &6751811987680297477
@@ -19659,10 +19631,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 683531641}
     m_Modifications:
-    - target: {fileID: 124964391225531408, guid: 2b6fbe1067b30214bb1ed35664824e7b, type: 3}
-      propertyPath: sfxType
-      value: 2
-      objectReference: {fileID: 0}
     - target: {fileID: 124964391225531409, guid: 2b6fbe1067b30214bb1ed35664824e7b, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -19677,7 +19645,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 124964391225531409, guid: 2b6fbe1067b30214bb1ed35664824e7b, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 179.8006
+      value: 176.68
       objectReference: {fileID: 0}
     - target: {fileID: 124964391225531409, guid: 2b6fbe1067b30214bb1ed35664824e7b, type: 3}
       propertyPath: m_LocalRotation.w
