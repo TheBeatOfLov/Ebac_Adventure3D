@@ -58,6 +58,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d42bed7c1afaab44c9c6fd1ef7a00963, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sfxType: 3
   clotheType: 1
   compareTag: Player
   duration: 2

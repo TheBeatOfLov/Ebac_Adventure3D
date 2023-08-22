@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class ClotheItemBase : MonoBehaviour
 {
+    public SFXType sfxType;
     public ClotheType clotheType;
     public string compareTag = "Player";
     public float duration = 2f;
@@ -21,11 +22,15 @@ public class ClotheItemBase : MonoBehaviour
     public virtual void Collect()
     {
         HideObject();
+        PlaySFX();
     }
     private void HideObject()
     {
         gameObject.SetActive(false);
     }
 
-
+    private void PlaySFX()
+    {
+        SFXPool.Instance.Play(sfxType);
+    }
 }
