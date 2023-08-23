@@ -75,6 +75,8 @@ public class SaveManager : Singleton<SaveManager>
     public void SaveCheckpoint(int key)
     {
         _saveSetup.checkpoint = key;
+        SaveItems();
+        Save();
     }
     #endregion
 
