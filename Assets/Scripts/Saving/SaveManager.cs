@@ -27,7 +27,7 @@ public class SaveManager : Singleton<SaveManager>
     private void Start()
     {
         Invoke(nameof(Load), .1f);
-    }
+    } 
 
     private void CreateNewSave()
     {

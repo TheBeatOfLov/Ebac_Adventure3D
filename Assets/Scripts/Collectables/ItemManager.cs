@@ -24,6 +24,9 @@ public class ItemManager : Singleton<ItemManager>
     {
         AddByType(ItemType.COIN, SaveManager.Instance.setup.coins);
         AddByType(ItemType.LIFE_PACK, SaveManager.Instance.setup.lifepacks);
+        //if (SaveManager.Instance == null) Debug.Log("SaveManager.Instance is null");
+        //Debug.Log("LoadItemsFromSave");
+        //if (SaveManager.Instance.setup == null) Debug.Log("SaveManager.Instance.SETUP is null");
     }
 
     private void Reset()
